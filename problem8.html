@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 8</title>
+</head>
+<body>
+    <script>
+
+// Some Variables
+var lowerLimit = 1;
+var upperLimit = 100;
+var tries = 8;
+var answer = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+var guess = '';
+var message = 'Guess a number between ' + lowerLimit + ' and ' + upperLimit + ':';
+
+// Keep prompting the user for a guess until the game ends.
+while (tries > 0) {
+    // Prompt the user for a guess.
+    guess = prompt(message, guess);
+
+    // Break out of loop here
+    if (guess == null) {
+        alert('Quitting game now.');
+        break;
+    }
+    else if (isFinite(guess) && guess != '') {
+
+        guess = +guess;
+
+
+        if (guess < lowerLimit) {
+            alert('Your guess should be no less than ' + lowerLimit + '.');
+        }
+
+
+        else if (guess > upperLimit) {
+            alert('Your guess should be no greater than ' + upperLimit + '.');
+        }
+
+        else if (guess > answer) {
+            alert('Your guess is too high.' + tries + "/8");
+        }
+
+        else if (guess < answer) {
+            alert('Your guess is too low ' + tries + "/8");
+        }
+
+        else {
+            alert('Great job, you got it!');
+            break;
+        }
+    }
+
+    else {
+        alert('You must enter a number as a guess.');
+    }
+
+    // did the number of tries in decreasing order 
+    tries = tries - 1;
+}
+
+if (tries == 0) {
+    alert('You ran out of tries.  The number was ' + answer + '.');
+}
+    </script>
+
+</body>
+</html>

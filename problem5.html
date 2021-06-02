@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 5</title>
+</head>
+<body>
+    <label for="number">Type a Number:</label>
+    <input type="number" id="number">
+
+    <label for="op">Operation: </label>
+    <input type="text" id="op">
+    <button onclick="run()">Submit</button>
+
+    <script>
+        function sumData(number){
+            var sum = 0;
+            for(var i = 0; i <= number; i++){
+                sum += i;
+            }
+            return sum;
+        }
+
+        function productData(number) {
+            var product = 1;
+            for(var i = 1; i <= number; i++){
+                product = product * i;
+            }
+            return product;
+        }
+
+        function run() {
+            var number = document.getElementById("number").value;
+            var operation = document.getElementById("op").value;
+
+            if( operation === "+"){
+             document.write("The sum of numbers from 1 to " + number + " is : " + sumData(number));
+            } else if ( operation === "*"){
+            document.write("The product of numbers from 1 to " + number + " is : " + productData(number))
+            }
+        }
+    </script>
+</body>
+</html>
